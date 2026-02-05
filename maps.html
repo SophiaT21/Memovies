@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>MemoVies</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="maps.css">
 
     <!-- Leaflet CSS -->
     <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet/dist/leaflet.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -23,29 +27,23 @@
 
     <!-- UI -->
     <div class="image-bottom">
-        <a href="#" class="btn-bottom">
+        <a href="profil.html" class="btn-bottom">
             <img src="profil_icon.svg" alt="">
         </a>
     </div>
 
-    <a href="#" class="btn-map">
-        <img src="carte.png" alt="">
-    </a>
 
-    <a href="#" class="btn-plus"></a>
-    <img src="plus.png" class="plus-icon" alt="">
 
     <img src="btn_photo.png" class="btn-photo" alt="">
 
     <button class="button" onclick="toggleButton(this)"></button>
 
-    <div class="container-horizontal">
-        <button>Personnel</button>
-        <button>Historique</button>
-        <button>Tous</button>
+    <div class="container-horizontal" id="slider">
+        <button class="tab">Personnel</button>
+        <button class="tab">Historique</button>
+        <button class="tab">Tous</button>
     </div>
 
-    <button class="glass"></button>
 
 </div>
 
@@ -249,6 +247,21 @@ function toggleButton(btn) {
 
 map.getContainer().addEventListener('touchstart', e => {
     e.stopPropagation();
+});
+</script>
+
+<script>
+const tabs = document.querySelectorAll(".container-horizontal .tab");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+
+    // enlever l'état actif de tous les boutons
+    tabs.forEach(t => t.classList.remove("active"));
+
+    // activer uniquement celui cliqué
+    tab.classList.add("active");
+  });
 });
 </script>
 
