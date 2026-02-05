@@ -51,13 +51,22 @@ body {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* PROFIL */
-.btn-bottom img {
-    width: 31px;
-    position: absolute;
-    bottom: 35px;
-    left: 200px;
+/* ========================= */
+/* BOUTON PROFIL */
+/* ========================= */
+.btn-bottom {
+    bottom: 32px;
+    left: 55%;
+    transform: translateX(-50%);
+    img {
+        width: 31px;
+        cursor: pointer;
+        position: absolute;
+        bottom: 35px;
+        left: 25px;
+    }
 }
+
 
 /* CARTE BTN */
 .btn-map {
@@ -110,39 +119,56 @@ body {
     border-radius: 6px;
 }
 
-/* SCROLL */
+
 .container-horizontal {
-    background-color: rgba(0,0,0,0.3);
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: 22px;
     bottom: 30px;
-    left: 104px;
+    left: 104px;  
     width: 185px;
-    padding: 12px;
-    overflow-x: auto;
+    overflow-x: auto;         /* scroll horizontal */
     white-space: nowrap;
+    padding: 5px;
+    scrollbar-width: none;    /* Firefox */
+    /* boutons texte uniquement */
+    button {
+        display: inline-block;
+        background: none;         /* pas de fond */
+        border: none;  
+        padding: 4px 9px;            /* enlève le padding par défaut */
+        margin-right: 20px;       /* ESPACEMENT entre boutons */
+        font-size: 16px;
+        color: #ffffff;
+        cursor: pointer;
+        white-space: nowrap;
+        border-radius: 19px;
+        /* hover */
+        &:hover {
+            text-decoration: none;
+            color: #FFDBBB;
+        }
+        /* focus clavier */
+        &:focus {
+            outline: none;
+            text-decoration: none;
+        }
+        /* bouton actif */
+        &.active {
+            background-color: rgba(255, 255, 255, 0.25);
+
+            
+            color: #FFDBBB;
+            transition: all 0.25s ease;
+        }
+    }
 }
 
+/* cacher scrollbar Chrome / Edge / Safari */
 .container-horizontal::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-.container-horizontal button {
-    background: none;
-    border: none;
-    margin-right: 20px;
-    font-size: 16px;
-    color: white;
-}
-
-/* GLASS */
-.glass {
-    bottom: 34px;
-    left: 145px;
-    width: 105px;
-    height: 34px;
-    border-radius: 22px;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.25);
-}
